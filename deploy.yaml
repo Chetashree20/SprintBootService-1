@@ -1,35 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: veldeploy
+  name: springboot-deployment
   labels:
-    app: velapp
+    app: springboot-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: velapp
+      app: springboot-app
   template:
     metadata:
       labels:
-        app: velapp
+        app: springboot-app
     spec:
       containers:
-        - name: vel-container
+        - name: springboot-container
           image: chetu20/springboot:1.0
           ports:
             - containerPort: 8080
-   
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: velservice
-spec:
-  selector:
-    app: velapp
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080
-  type: NodePort
+          # Optional health checks for production
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+      # Uncomment if your repo is private
+      # imagePullSecrets:
+      #   - name: dockerhub-secret
