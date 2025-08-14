@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
         - name: vel-1
-          image: shantanu312/service-1:1.0
+          image: chetu20/springboot:1.0
           ports:
             - containerPort: 8080
