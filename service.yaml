@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: velservice
+
+
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+
+  selector:
+    name: velpod
+
+  type: NodePort
