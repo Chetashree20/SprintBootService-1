@@ -51,7 +51,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'kubectl apply -f deployment.yaml'
+                        sh 'kubectl apply -f deploy.yaml'
                         sh 'kubectl apply -f service.yaml'
                         echo '✅ Kubernetes deploy SUCCESS'
                     } catch (err) {
