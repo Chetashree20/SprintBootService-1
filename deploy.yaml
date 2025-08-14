@@ -1,0 +1,26 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: veldeploy
+
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: velpod
+
+
+  template:
+    metadata:
+      name: velpod
+      labels:
+        name: velpod
+
+
+    spec:
+      containers:
+        - name: vel-1
+          image: chetu20/service-1:1.0
+          ports:
+            - containerPort: 8080
