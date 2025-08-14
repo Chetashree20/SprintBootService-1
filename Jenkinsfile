@@ -53,6 +53,8 @@ pipeline {
                     try {
                         sh 'kubectl apply -f deploy.yaml'
                         sh 'kubectl apply -f service.yaml'
+                        sleep 15 && sudo kubectl get pods
+                        sleep 15 && sudo kubectl get service
                         echo '✅ Kubernetes deploy SUCCESS'
                     } catch (err) {
                         echo '❌ Kubernetes deploy FAILED'
