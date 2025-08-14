@@ -1,12 +1,15 @@
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
-  name: springboot-service
+  name: velservice
+
+
 spec:
-  selector:
-    app: springboot-app
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 8080
       targetPort: 8080
+
+  selector:
+    name: velpod
+
   type: NodePort
