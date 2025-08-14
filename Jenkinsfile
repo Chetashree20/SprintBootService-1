@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'echo "my-dockerhub-password" | docker login -u "chetu20" --password-stdin'
+                        sh 'echo "my-dockerhub-password" | docker login -u "chetu20" -p "Chetu20"'
                         sh 'docker push chetu20/springboot:1.0'
                         echo '✅ Docker push SUCCESS'
                     } catch (err) {
