@@ -1,7 +1,19 @@
-FROM openjdk:17
+ # Base image with Java 17
+FROM openjdk:17-jdk-slim
+
+# Maintainer info
 LABEL maintainer="Chetashree"
-WORKDIR /
-COPY target/SpringBootExecutableJarFileDemo-0.0.1-SNAPSHOT.jar app.jar
+
+# Create working directory
+WORKDIR /app
+
+# Copy the jar file from Jenkins build output (mounted in /mnt/jars)
+COPY app.jar app.jar
+
+# Expose the port your Spring Boot app listens on
 EXPOSE 8080
-CMD java -jar SpringBootExecutableJarFileDemo-0.0.1-SNAPSHOT.jar
+
+# Run the Spring Boot JAR
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
 
