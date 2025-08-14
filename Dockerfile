@@ -1,7 +1,7 @@
 FROM openjdk:17
 LABEL maintainer="Chetashree"
 WORKDIR /
-COPY SpringBootExecutableJarFileDemo-0.0.1-SNAPSHOT.jar SpringBootExecutableJarFileDemo-0.0.1-SNAPSHOT.jar
+COPY target/SpringBootExecutableJarFileDemo-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
 CMD java -jar SpringBootExecutableJarFileDemo-0.0.1-SNAPSHOT.jar
 
