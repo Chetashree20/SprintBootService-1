@@ -36,9 +36,8 @@ pipeline {
             steps {
                 script {
                     try {
-                        docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
-                            sh 'docker push chetu20/springboot:1.0'
-                        }
+                        sh 'echo "my-dockerhub-password" | docker login -u "chetu20" -p "Chetu@1994"'
+                        sh 'docker push chetu20/springboot:1.0'
                         echo '✅ Docker push SUCCESS'
                     } catch (err) {
                         echo '❌ Docker push FAILED'
