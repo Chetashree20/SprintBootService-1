@@ -10,7 +10,7 @@ pipeline {
                     try {
                         sh 'mvn clean package -DskipTests'
                         sh 'mkdir -p /mnt/jars'
-                        sh 'cp target/*.jar /mnt/jars/app.jar'
+                        sh 'cp target/myapp.jar .'
                         sh 'docker build -t chetu20/springboot:1.0 .'
                      echo 'JAR build SUCCESS ✅'
                     } catch (err) {
