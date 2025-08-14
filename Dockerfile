@@ -8,7 +8,7 @@ LABEL maintainer="Chetashree"
 WORKDIR /app
 
 # Copy the jar file from Jenkins build output (mounted in /mnt/jars)
-COPY app.jar app.jar
+COPY target/myapp.jar app.jar
 
 # Expose the port your Spring Boot app listens on
 EXPOSE 8080
