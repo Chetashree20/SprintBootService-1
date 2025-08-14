@@ -1,5 +1,5 @@
  # Base image with Java 17
-FROM openjdk:17-jdk-slim
+FROM openjdk:17
 
 # Maintainer info
 LABEL maintainer="Chetashree"
@@ -8,7 +8,7 @@ LABEL maintainer="Chetashree"
 WORKDIR /app
 
 # Copy the jar file from Jenkins build output (mounted in /mnt/jars)
-COPY target/myapp.jar app.jar
+COPY target/*.jar app.jar
 
 # Expose the port your Spring Boot app listens on
 EXPOSE 8080
